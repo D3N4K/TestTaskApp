@@ -1,0 +1,37 @@
+﻿<Window x:Class="TestTaskApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestTaskApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Приложение для склада" FontFamily="Bold" FontSize="30" Margin="10"/>
+        <ListBox
+            Grid.Row="1"
+            Background="LightGray"
+            Margin="15"
+            Width="500"
+            HorizontalAlignment="Left"
+            x:Name="lbInformation"
+            >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <Button x:Name="btnShowByDate" Content="Вывести паллеты по сроку годности" Margin="20" FontSize="12" Width="220" Click="btnShowByDate_Click"/>
+            <Button x:Name="btnShowTop3" Content="Вывести топ 3 по сроку годности" Margin="20" FontSize="12" Width="220" Click="btnShowTop3_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
